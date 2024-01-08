@@ -1,0 +1,24 @@
+ Count nodes of linked list
+
+Sample Input 1 :
+3 4 5 2 6 1 9 -1
+Sample Output 1 :
+7
+
+int length(Node *head)
+{
+	Node* temp = head;
+    int cnt=0;
+    while(temp)
+    {
+        temp =temp->next;
+        cnt++;
+    }
+    return cnt;
+}
+
+
+The provided code is a C++ function named length that calculates the length of a linked list. 
+It takes a pointer to the head of the linked list (Node *head) as its parameter. 
+The function uses a while loop to traverse the linked list, counting the number of nodes until the end is reached. 
+The variable cnt is incremented for each node encountered, and the final count is returned.
