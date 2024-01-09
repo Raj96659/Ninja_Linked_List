@@ -1,0 +1,39 @@
+Problem statement
+You are given the head of a linked list ‘list’ of size ‘N’.
+
+Your task is to delete the linked list's last node and return the linked list's head.
+Example:
+Input: ‘N’ = 4, ‘list’ = 4 -> 2 -> 5 -> 1
+
+Output: 4 2 5
+
+Explanation: 
+After deleting the last node, the Linked List is 4 -> 2 -> 5
+
+  Node *deleteLast(Node *list){
+    // Write your code here
+    if(list==NULL || list->next==NULL)
+    {
+        return NULL;
+    }
+    Node* temp = list;
+    while(temp->next->next!=NULL)
+    {
+        temp = temp->next;
+    }
+    delete temp->next;
+    temp->next = nullptr;
+    return list;
+}
+
+
+Input: head = [4,5,1,9], node = 5
+Output: [4,1,9]
+Explanation: You are given the second node with value 5, the linked list should become 4 -> 1 -> 9 after calling your function.
+  class Solution {
+public:
+    void deleteNode(ListNode* node) {
+        node->val = node->next->val; 
+        node->next = node->next->next;
+    }
+};
