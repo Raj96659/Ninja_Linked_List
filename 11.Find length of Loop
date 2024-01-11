@@ -1,0 +1,36 @@
+Problem statement
+You’re given a linked list. The last node might point to null, or it might point to a node in the list, thus forming a cycle.
+
+Find out whether the linked list has a cycle or not, and the length of the cycle if it does.
+
+If there is no cycle, return 0, otherwise return the length of the cycle.
+
+int findlength(Node* slow,Node* fast)
+{
+    int cnt = 1;
+    fast = fast->next;
+    while(slow!=fast)
+    {
+        cnt++;
+        fast=fast->next;
+    }
+    return cnt;
+}
+
+int lengthOfLoop(Node *head) {
+    // Write your code here
+    Node* slow=head;
+    Node* fast=head;
+
+    while(fast!=NULL && fast->next!=NULL)
+    {
+        slow=slow->next;
+        fast=fast->next->next;
+
+        if(slow==fast)
+        {
+            return findlength(slow,fast);
+        }
+    }
+    return 0;
+}
