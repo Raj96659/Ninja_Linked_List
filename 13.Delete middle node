@@ -1,0 +1,42 @@
+Problem statement
+Given a singly linked list of 'N' nodes. Your task is to delete the middle node of this list and return the head of the modified list.
+
+However, if the list has an even number of nodes, we delete the second middle node
+
+Node* deleteMiddle(Node* head){
+
+    Node* slow=head;
+
+    Node* fast=head;
+
+    Node* prev = NULL;
+
+ 
+
+    if(head==NULL||head->next==NULL)return NULL;
+
+ 
+
+    while(fast&&fast->next){
+
+        prev=slow;
+
+        slow=slow->next;
+
+        fast=fast->next->next;
+
+ 
+
+    }
+
+ 
+
+    prev->next=slow->next;
+
+    delete slow;
+
+ 
+
+    return head;
+
+}
